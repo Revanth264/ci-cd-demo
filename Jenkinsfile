@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Revanth264/ci-cd-demo.git'
+                git branch: 'main', url: 'https://github.com/Revanth264/ci-cd-demo.git'
             }
         }
         stage('Build') {
@@ -23,3 +23,4 @@ pipeline {
         }
     }
 }
+
