@@ -8,17 +8,28 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'pip3 install -r requirements.txt'
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install --upgrade pip
+                    pip install -r requirements.txt
+                '''
             }
         }
         stage('Test') {
             steps {
-                sh 'echo "Running tests (placeholder)"'
+                sh '''
+                    . venv/bin/activate
+                    echo "Running tests (placeholder)"
+                '''
             }
         }
         stage('Deploy') {
             steps {
-                sh 'echo "Deploying application..."'
+                sh '''
+                    . venv/bin/activate
+                    echo "Deploying application..."
+                '''
             }
         }
     }
